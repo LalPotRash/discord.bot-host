@@ -29,9 +29,9 @@ async def on_raw_reaction_add(payload):
 
         if role is not None:
             member = discord.utils.find(lambda m : m.id == payload.user_id, guild.members)
-            if "men" in member.roles:
+            if discord.utils.get(guild.roles, name = "men") in member.roles:
                 print("man")
-            elif "women" in member.roles:
+            elif discord.utils.get(guild.roles, name = "women") in member.roles:
                 print("woman")
             else:
                 if member is not None:
