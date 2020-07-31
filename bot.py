@@ -16,7 +16,7 @@ async def rpt(ctx, *args):
 @bot.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
-    if message_id == 738789564776185886:
+    if message_id == 738789501782196856:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
@@ -29,14 +29,19 @@ async def on_raw_reaction_add(payload):
 
         if role is not None:
             member = discord.utils.find(lambda m : m.id == payload.user_id, guild.members)
-            if member is not None:
-                await member.add_roles(role)
+            if "men" in member.roles:
+                print("man")
+            elif "women" in member.roles:
+                print("woman")
+            else:
+                if member is not None:
+                    await member.add_roles(role)
 
 ##remove role
 @bot.event
 async def on_raw_reaction_remove(payload):
     message_id = payload.message_id
-    if message_id == 738789564776185886:
+    if message_id == 738789501782196856:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
