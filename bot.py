@@ -5,7 +5,12 @@ token = "NzM4NDQwMzc5NDQzMTgzNzI4.XyL8Mg.23PtdJTYgkVIiJU_09ecSFULpIM"
 
 bot = commands.Bot(command_prefix='!')
 
-##
+##repeat
+@bot.command(pass_context=True)
+async def repeat(ctx, arg):
+    await ctx.send(arg)
+
+##give role
 @bot.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
@@ -25,7 +30,7 @@ async def on_raw_reaction_add(payload):
             if member is not None:
                 await member.add_roles(role)
 
-##
+##remove role
 @bot.event
 async def on_raw_reaction_remove(payload):
     message_id = payload.message_id
