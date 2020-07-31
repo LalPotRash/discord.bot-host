@@ -8,7 +8,8 @@ bot = commands.Bot(command_prefix='!')
 ##repeat
 @bot.command(pass_context=True)
 async def rpt(ctx, *args):
-    await ctx.send(*args, sep=", ")
+    arg = ", ".join(args)
+    await ctx.send(arg)
 
 ##give role
 @bot.event
