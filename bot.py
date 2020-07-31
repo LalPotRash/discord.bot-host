@@ -8,6 +8,7 @@ bot = commands.Bot(command_prefix='!')
 ##repeat
 @bot.command(pass_context=True)
 async def rpt(ctx, *args):
+    await ctx.channel.purge(limit=2)
     arg = ", ".join(args)
     await ctx.send(arg)
 
@@ -15,7 +16,7 @@ async def rpt(ctx, *args):
 @bot.event
 async def on_raw_reaction_add(payload):
     message_id = payload.message_id
-    if message_id == 738505305549307975:
+    if message_id == 738789564776185886:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
@@ -35,7 +36,7 @@ async def on_raw_reaction_add(payload):
 @bot.event
 async def on_raw_reaction_remove(payload):
     message_id = payload.message_id
-    if message_id == 738505305549307975:
+    if message_id == 738789564776185886:
         guild_id = payload.guild_id
         guild = discord.utils.find(lambda g : g.id == guild_id, bot.guilds)
 
