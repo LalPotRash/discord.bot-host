@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix='!')
 ##repeat
 @bot.command(pass_context=True)
 async def rpt(ctx, *args):
-    await ctx.channel.purge(limit=2)
+    await ctx.channel.purge(limit=1)
     print(args)
     arg = " ".join(args)
     await ctx.send(arg)
