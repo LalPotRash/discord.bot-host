@@ -9,7 +9,8 @@ bot = commands.Bot(command_prefix='!')
 @bot.command(pass_context=True)
 async def rpt(ctx, *args):
     await ctx.channel.purge(limit=2)
-    arg = ", ".join(args)
+    print(args)
+    arg = " ".join(args)
     await ctx.send(arg)
 
 ##give role
